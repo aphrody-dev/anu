@@ -2,7 +2,7 @@
 [product]
 name = "anu"
 display = "ANU"
-repo = "aphrody-dev/ANU"
+repo = "aphrody-dev/anu"
 forks = "aphrody-labs"       # every upstream is forked here and consumed as a submodule with a relative URL
 
 # Upstream sets read live by tools/discover.ts. `all` takes every active repo of the org; `rust` keeps Rust repos
@@ -43,3 +43,10 @@ docs = ["mkerrisk/man-pages", "MicrosoftDocs/win32", "MicrosoftDocs/sdk-api", "M
 ntfs = ["ColinFinck/ntfs", "ColinFinck/nt-hive", "tuxera/ntfs-3g", "omerbenamram/mft", "winfsp/winfsp", "dokan-dev/dokany", "microsoft/ProjFS-Managed-API"]
 nt = ["winsiderss/systeminformer", "winsiderss/phnt", "hfiref0x/WinObjEx64", "googleprojectzero/sandbox-attacksurface-analysis-tools", "x64dbg/x64dbg", "microsoft/Detours", "microsoft/krabsetw", "n4r1b/ferrisetw", "rust-minidump/rust-minidump", "omerbenamram/evtx", "ohadravid/wmi-rs", "CasualX/pelite", "lief-project/LIEF", "ionescu007/SimpleVisor", "microsoft/CsWin32", "microsoft/windows-drivers-rs", "microsoft/win32metadata", "microsoft/wil", "microsoft/cppwinrt", "reactos/reactos", "wine-mirror/wine"]
 win32-docs = ["MicrosoftDocs/win32", "MicrosoftDocs/sdk-api", "MicrosoftDocs/windows-driver-docs", "MicrosoftDocs/windows-powershell-docs", "microsoft/Windows-classic-samples", "microsoft/Windows-driver-samples", "microsoft/Windows-universal-samples", "microsoft/WinDbg-Samples"]
+
+# The path-literal scanner of the test suite: a file of another repository at a pinned commit, fetched into .cache/ (gitignored) by
+# tools/paths.test.ts, skipped when it cannot be fetched. Nothing else of that repository is read.
+[scanner]
+repo = "aphrody-dev/ay"
+rev = "d73c9ffe96e3080d56ca64e5842d6083134b85c1"
+path = "tools/paths.ts"

@@ -1,0 +1,6 @@
+id = "anu"
+kind = "unix"
+org = "aphrody-dev"
+
+[legacy]
+repos = ["ANU"]
