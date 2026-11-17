@@ -1,0 +1,42 @@
+# ANU: Aphrody's Not Unix. Identity and source registry; no dependency on any other Aphrody repository.
+[product]
+name = "anu"
+display = "ANU"
+repo = "aphrody-dev/ANU"
+forks = "aphrody-labs"       # every upstream is forked here and consumed as a submodule with a relative URL
+
+# Upstream sets read live by tools/discover.ts. `all` takes every active repo of the org; `rust` keeps Rust repos
+# ranked by stars; `min_stars` drops the long tail.
+[sources.unixwin]
+org = "unixwin"
+take = "all"
+dir = "unixwin"
+
+[sources.uutils]
+org = "uutils"
+take = "all"
+dir = "uutils"
+
+[sources.rust-for-linux]
+org = "Rust-for-Linux"
+take = "all"
+dir = "kernel/rust-for-linux"
+
+[sources.microsoft]
+org = "microsoft"
+take = "rust"
+min_stars = 1000
+dir = "microsoft"
+
+[sources.rust-lang]
+org = "rust-lang"
+take = "rust"
+min_stars = 500
+dir = "rust-lang"
+
+# Hand-picked repositories outside those orgs: Rust kernels, GNU replacements, LFS, docs.
+[picks]
+kernel = ["asterinas/asterinas", "redox-os/kernel", "theseus-os/Theseus", "maestro-os/maestro", "tock/tock", "hermit-os/kernel", "torvalds/linux"]
+gnu-rs = ["trifectatechfoundation/sudo-rs", "pendulum-project/ntpd-rs", "trifectatechfoundation/zlib-rs", "BurntSushi/ripgrep", "sharkdp/fd", "sharkdp/bat", "eza-community/eza", "nushell/nushell", "rustls/rustls", "ajeetdsouza/zoxide", "astral-sh/uv"]
+lfs = ["lfs-book/lfs", "lfs-book/blfs"]
+docs = ["mkerrisk/man-pages", "MicrosoftDocs/win32", "MicrosoftDocs/sdk-api", "MicrosoftDocs/windows-driver-docs"]
